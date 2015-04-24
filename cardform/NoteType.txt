@@ -1,0 +1,10 @@
+Word : Arial : 40px : Sort By this field in the browser
+WordType : Arial : 20px
+Phonetic : Arial : 20px
+Example : Arial : 20px
+Sound_uk : Arial : 20px
+Sound_us : Arial : 20px
+Thumb : Arial : 20px
+Image : Arial : 20px
+OxfordContent : Arial : 20px
+CopyRight : Arial : 20px

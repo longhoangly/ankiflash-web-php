@@ -1,0 +1,49 @@
+<link type="text/css" rel="stylesheet" href="./oxlayout/oxford.css">
+<link type="text/css" rel="stylesheet" href="./oxlayout/responsive.css">
+<link type="text/css" rel="stylesheet" href="./oxlayout/interface.css">
+
+<style type="text/css">
+.card {
+	font-family: arial;
+	font-size: 20px;
+	text-align: left;
+	color: black;
+	background-color: #ecf5ff
+	font-weight: Bold;
+}
+
+body{
+	background-color: #ecf5ff
+}
+
+.frameContent {
+	width: 650px;
+	height: 500px;
+	padding: 10px;
+}
+
+.replace {
+	color: red;
+}
+
+.img {
+    	width:auto;
+    	max-width:50%;
+    	height:auto;
+}
+
+.cloze {
+	font-weight: bold;
+	color: green;
+}
+
+.table {
+    display: table;
+}
+.row {
+    display: table-row;
+}
+.cell {
+    display: table-cell;
+}
+</style>

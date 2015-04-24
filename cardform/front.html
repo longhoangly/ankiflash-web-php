@@ -1,0 +1,52 @@
+<body>
+<div style='font-family: Arial; font-size: 12px; color: purple; text-align: center'>&copy; {{CopyRight}}</div>
+<br>
+<div style='font-family: Arial; text-align: center'>
+	<span style='font-size: 20px; text-align: center'>BrE {{Sound_uk}} NAmE {{Sound_us}}</span>
+	<br>
+	<span style='font-size: 15px; color: green; text-align: left'>{{WordType}}</span>
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span style='font-size: 15px; color: purple; text-align: right'>{{Phonetic}}</span>
+</div>
+<br>
+<br>
+<a onclick ="ShowHide('HiddenDiv1')" style='font-size: 15px; color: black'>
+	<button type="submit" style="width: 80px; height: 27px; border: 1 none; border-radius: 5px; box-shadow: grey; background-color: #f2f2ff">Examples</button></a>
+<br><br>
+	<div id="HiddenDiv1" style="DISPLAY: none">
+		<div style='font-family: Arial; font-size: 15px'>{{cloze:Example}}</div>
+		<span class="img" style='font-size: 30px; float: right; margin-right: 100px'>{{Thumb}}</span>
+		<br>		
+		<a onclick ="ShowHide('HiddenDiv2')" style='font-size: 15px; color: black'>
+			<button type="submit" style="width: 130px; height: 30px;  border: 1 none; border-radius: 5px; box-shadow: grey; background-color: #f2f2ff">Show more hints</button></a>
+			<br><br>
+			<div id="HiddenDiv2" style="DISPLAY: none">
+				<div id="dropvowel" style='font-family: Arial; font-size: 25px; color: blue'>{{Word}}</div>
+				<br>		
+			</div>
+	</div>
+	<br>
+
+<div style='font-family: Arial; font-size: 40px; letter-spacing: 2px; color: purple'>{{type:Word}}</div>
+</body>
+
+<script language="JavaScript">
+function ShowHide(divId){
+	if(document.getElementById(divId).style.display == 'none') {
+		document.getElementById(divId).style.display='block';
+	} else {
+		document.getElementById(divId).style.display = 'none';
+	}
+}
+
+var str = document.getElementById("dropvowel").innerHTML; 
+letters = '';
+for (var i = 0, len = str.length; i < len; i++) {
+    if (str[i].match(/[AEOUIaeoui]/i)) {
+		letters += '<span class="replace">' + '_' + '</span>';
+    } else {
+		letters += str[i];
+	}
+}
+document.getElementById("dropvowel").innerHTML=letters;
+</script>

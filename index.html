@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US">
+<head profile="http://www.w3.org/2005/10/profile">
+<title>FlashcardsGenerator.com</title>
+<link rel="icon" href="./icons/favicon.ico" type="image/x-icon"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="./oxlayout/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="./oxlayout/interface.css">
+<link type="text/css" rel="stylesheet" href="./oxlayout/responsive.css">
+<link type="text/css" rel="stylesheet" href="./oxlayout/oxford.css">
+
+<style> 
+
+body {
+    background-color: #f2f2f2;
+}
+
+.content1 {
+    background-color: #4577bf;
+    border-radius: 10px;
+	width: 100%;
+	padding: 20px;
+	font-family: Arial;
+	font-size: 14px;
+	color: white;
+}
+
+.content2 {
+    background-color: #4577bf;
+    border-radius: 10px;
+	width: 105%;
+	padding: 20px;
+	font-family: Arial;
+	font-size: 14px;
+	color: white;
+}
+
+.inputfield {
+    border: medium none;
+    border-radius: 5px;
+    outline: medium none;
+	font: italic bold 12px/20px Georgia, serif;
+    color: #4577bf;
+	margin: 5px 0 5px 0;
+    resize: none;
+    width: 100%;
+	min-height: 150px;
+	max-height: 220px;
+    line-height: 15px;
+    background-color: white;
+}
+
+button {
+	border: none;
+	outline: none;
+	border-radius: 5px;
+	display: table-cell;
+    padding: 4px 6px;
+	font-size: 13px;
+	color: white;
+    background-color: #428bca;
+}
+
+button:hover {
+    padding: 4px 6px;
+	font-size: 13px;
+	color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.fileUpload {
+	position: relative;
+	overflow: hidden;
+	margin: 0px;
+}
+
+.fileUpload input.upload {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.btnpr-primary {
+    background-color: #428bca;
+    border-color: #357ebd;
+    color: #fff;
+}
+
+.btnpr-primary:hover {
+    background-color: white;
+    border-color: #357ebd;
+    color: black;
+    cursor: pointer;
+}
+
+.btnpr {
+	top: 7px;
+    background-image: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+    padding: 4px 6px;
+}
+
+input {
+    font-family: inherit;
+    font-size: 13px;
+    color: black;
+    padding: 3px 7px;
+	border-radius: 5px;
+    border: 1px solid #d8d8d8;
+    border-color: #357ebd;
+    background-color: #d8d8d8;
+}
+
+.col-md-6 { padding-right: 10px; padding-left: 10px; }
+.col-md-6:first-child { padding-right: 0px !important; }
+.container { width: 100% !important; padding-top: 10px; padding-bottom: 10px; }
+
+#loading_p { display: none; }
+
+#loading_container {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #ADADAD;
+	opacity: 0.5;
+	z-index: 999999;
+}
+
+#loading {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -30px;
+	margin-left: -30px;
+	z-index: 999999;
+}
+
+#completing {
+	position: fixed;
+	top: 52.5%;
+	left: 50%;
+	font: italic bold 12px/20px Georgia, serif;
+	color: black;
+	z-index: 9999999;
+}
+
+@media (max-width: 991px) {
+	.row { margin: 0; }
+	.container { padding-left: 0px !important; padding-right: 0px !important; }
+	.col-md-6:first-child { padding-right: 10px !important; }
+	.col-md-6:last-child { margin-top: 10px; }
+	.content2 {	width: 100% !important; }
+}
+
+</style> 
+
+<script type="text/javascript" src="./oxlayout/jquery.js"></script>
+</head>
+
+<body onbeforeunload="close()">
+<div id="wrapper1" class="wrapper">	
+	<div id="loading_p">
+		<div id="loading_container"></div>
+		<div id="completing"></div>
+		<div id="loading"><img src="./icons/loading.gif" type="image/gif"></div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div id="content" class="content1" >
+					<div style="font-family: Comic Sans MS, cursive, sans-serif; font-size: 16px">Input Word List</div>
+					
+					<input id="uploadFile" placeholder="Choose File" disabled="disabled" />
+					<div class="fileUpload btnpr btnpr-primary">
+						<span>Upload</span>
+						<input id="uploadBtn" type="file" class="upload" />
+					</div>
+
+					<div><textarea class="inputfield" readonly wrap="off" id="inputTextArea"></textarea></div>
+					
+					<div>
+						<button onclick="generateFlashcards()">Generate Flashcards</button>&nbsp;
+						<span id="total">total: 0</span>
+						<!--- <!button onclick="again()">Run again</button> -> <!-->
+					</div>
+					<br>
+					
+					<div style="font-family: Comic Sans MS, cursive, sans-serif; font-size: 16px">Output Card List</div>
+					<div>
+						<textarea class="inputfield" readonly wrap="off" id="outputTextArea"></textarea>
+					</div>
+					<div>
+						<button onclick="downloadFlashcards()">Create Flashcards' Link</button>&nbsp;
+						<span id="complete">complete: 0</span>&nbsp;&nbsp;
+						<span id="Flashcards"></span> 
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div id="content2" class="content2" >
+					<span style="font: 16px/20px Comic Sans MS,cursive,sans-serif;">Progress... </span>
+					<progress id="progress" value="1" max="100"></progress>
+					<div style="margin-top: 10px;">&copy; This flashcard's content is get from the Oxford Advanced Learner's Dictionary. Thanks Oxford Dictionary!</div>
+					<div id="review" style="margin-top: 20px"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+
+
+
+<script type='text/javascript'>
+//initial work
+window.onload = again();
+
+//Read input file
+document.getElementById('uploadBtn').addEventListener('change', readSingleFile, false);
+document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.value;
+};
+
+//Auto resize text areas
+window.onload = resizeTextarea("inputTextArea");
+window.onload = resizeTextarea("outputTextArea");
+
+//This function is used to auto resize text area size
+function resizeTextarea(textarea) {
+	var observe;
+	if (window.attachEvent) {
+		observe = function (element, event, handler) {
+			element.attachEvent('on'+event, handler);
+		};
+	}
+	else {
+		observe = function (element, event, handler) {
+			element.addEventListener(event, handler, false);
+		};
+	}
+
+    var text = document.getElementById(textarea);
+    function resize () {
+        text.style.height = 'auto';
+        text.style.height = text.scrollHeight+'px';
+    }
+    /* 0-timeout to get the already changed text */
+    function delayedResize () {
+        window.setTimeout(resize, 0);
+    }
+	
+	observe(text, 'click',  resize);
+    observe(text, 'change',  resize);
+    observe(text, 'cut',     delayedResize);
+    observe(text, 'paste',   delayedResize);
+    observe(text, 'drop',    delayedResize);
+    observe(text, 'keydown', delayedResize);
+
+    text.focus();
+    resize();
+}
+
+
+//This function is used to load content of word list file.
+function readSingleFile(evt) {	
+	//Retrieve the first (and only!) File from the FileList object
+	var f = evt.target.files[0]; 
+	if (f) {
+		var r = new FileReader();
+		r.onload = function(e) { 
+			var contents = e.target.result;
+			if(! document.getElementById("outputTextArea").value=="") {
+				again();
+			}
+
+			document.getElementById('inputTextArea').value =  contents;
+			document.getElementById("total").innerHTML = "total: " + document.getElementById("inputTextArea").value.split('\n').filter(Boolean).length;
+			document.getElementById("complete").innerHTML = "complete: " + document.getElementById("outputTextArea").value.split('\n').filter(Boolean).length;
+		}
+		r.readAsText(f);
+	} 
+	else 
+	{
+		alert("Failed to load the selected file...");
+	}
+}
+
+
+//This function to prepare to run again
+function again() {
+	document.getElementById("completing").innerHTML = "";
+	document.getElementById('loading_p').style.display = "block";
+	
+	document.getElementById("inputTextArea").value = "";
+	document.getElementById("outputTextArea").value = "";
+	document.getElementById("review").innerHTML = "";
+	document.getElementById("Flashcards").innerHTML = "";
+
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+			//Hide loading icons
+			document.getElementById('loading_p').style.display = "none";
+		}
+	}
+	xmlhttp.open("GET", "request.php?q=again", true);
+	xmlhttp.send();
+}
+
+
+//This function to clear all data when closing browser
+function close() {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", "request.php?q=close", true);
+	xmlhttp.send();
+}
+
+
+//This function to get input and call request function
+function generateFlashcards() {
+	if(!document.getElementById("outputTextArea").value==""){
+		alert("Flashcards are generated. If you want to run again, please click button 'Upload'.");
+		return;
+	}else if(document.getElementById("inputTextArea").value==""){
+		alert("Input is empty. Please provide input to generate new flashcards.");
+		return;
+	}
+
+	var arrayOfWords = document.getElementById("inputTextArea").value.split('\n').filter(Boolean);
+	if(arrayOfWords.length < 15) {
+		for(var i=0; i<arrayOfWords.length; i++)
+		{
+			request(arrayOfWords[i]);
+		}
+	} else {
+		var interval=31;
+		for(var i=0; i<arrayOfWords.length; i+=interval)
+		{
+			bound=5;
+			for(var k=i; k<bound+i; k++) {
+				if(!arrayOfWords[k]){ break; }
+				request(arrayOfWords[k]);
+			}
+	
+			var max = 0;
+			if(arrayOfWords.length > interval) {
+				max = interval;
+			}else{
+				max = arrayOfWords.length;
+			}
+
+			var str = "";
+			var arrays = [];
+			for(var j=i+bound; j<max+i; j++) {
+				if(!arrayOfWords[j]){ break; }
+				arrays.push(arrayOfWords[j]);
+			}
+	
+			str = arrays.join("|");
+			if(!str){ continue; }
+			request(str);
+		}
+	}
+
+	//Display loading icons
+	document.getElementById('loading_p').style.display = "block";
+}
+
+
+//This function is used to get content of word meaning from oxford dictionary
+function request(str) {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+  		// code for IE7+, Firefox, Chrome, Opera, Safari
+  		xmlhttp=new XMLHttpRequest();
+  	} else {  // code for IE6, IE5
+  		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  	}
+
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        	document.getElementById("outputTextArea").value += xmlhttp.responseText;
+            document.getElementById("review").innerHTML = xmlhttp.responseText;
+            if(document.getElementById("entryContent")){
+            	document.getElementById("review").innerHTML = document.getElementById("entryContent").outerHTML;
+            }
+
+			total = document.getElementById("inputTextArea").value.split('\n').filter(Boolean).length;
+			complete = document.getElementById("outputTextArea").value.split('\n').filter(Boolean).length;
+
+			percent = (complete/total)*100;
+			percent = Math.round(percent*100)/100;
+
+			document.getElementById("completing").innerHTML = "Completing<br>" + percent + " %";
+			document.getElementById("progress").setAttribute("value", percent);
+			document.getElementById("complete").innerHTML = "complete: " + complete;
+
+			//Play audio
+			$(".audio_play_button").click(function(){
+				playSound($(this));
+			});
+			//Unbox hidden elements
+			unboxElement();
+			
+			if(complete==total){
+				//Hide loading icons
+				document.getElementById('loading_p').style.display = "none";
+				complete=total=0;
+			}
+
+			return true;
+        }
+    }
+    xmlhttp.open("GET", "request.php?q=" + str, true);
+    xmlhttp.send();
+}
+
+
+//This function is used to create link of zipped flashcards
+function downloadFlashcards() {
+	//Display loading icons
+	document.getElementById("completing").innerHTML = "";
+	document.getElementById('loading_p').style.display = "block";
+
+    if(document.getElementById("outputTextArea").value==""){
+		alert("Please generate new flashcards first...");
+		//Hide loading icons
+		document.getElementById('loading_p').style.display = "none";
+		return;
+	}else{
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				document.getElementById("Flashcards").innerHTML = xmlhttp.responseText;
+				//Hide loading icons
+				document.getElementById('loading_p').style.display = "none";
+			}
+		}
+		xmlhttp.open("GET", "request.php?q=download", true);
+		xmlhttp.send();		
+	
+
+	}
+}
+
+
+//This function is used to unbox covered elements
+function unboxElement() {
+	var u = document.getElementsByClassName('unbox');
+	for(var i=0; i<u.length; i++){
+		u[i].onclick = function () {
+			if(this.classList.contains('is-active')) {
+			this.classList.remove('is-active');
+			}
+			else {
+			this.classList.add('is-active');
+			}
+		}
+	}
+}
+
+
+//These functions is used to play pronunciation audio
+function playSound(btn) {
+    var src_mp3 = btn.attr("data-src-mp3");
+    var src_ogg = btn.attr("data-src-ogg");
+
+    if (supportAudioHtml5()){
+        playHtml5(src_mp3, src_ogg);
+    }else if (supportAudioFlash()){
+        playFlash(src_mp3, src_ogg);
+    }    else {
+        playRaw(src_mp3, src_ogg);
+    }
+}
+
+function supportAudioHtml5(){
+    var audioTag  = document.createElement('audio');
+    try{
+        return ( !!(audioTag.canPlayType)
+                 && ( ( audioTag.canPlayType("audio/mpeg") != "no" && audioTag.canPlayType("audio/mpeg") != "" )
+                 || ( audioTag.canPlayType("audio/ogg") != "no" && audioTag.canPlayType("audio/ogg") != "" ) ) );     
+    }catch(e){
+        return false;
+    } 
+}
+
+function supportAudioFlash(){
+    var flashinstalled = 0;
+    var flashversion = 0;
+    if (navigator.plugins && navigator.plugins.length){
+        x = navigator.plugins["Shockwave Flash"];
+        if (x){
+            flashinstalled = 2;
+            if (x.description){
+                y = x.description;
+                flashversion = y.charAt(y.indexOf('.')-1);
+            }
+        }
+        else{
+            flashinstalled = 1;
+        }
+        if (navigator.plugins["Shockwave Flash 2.0"]){
+            flashinstalled = 2;
+            flashversion = 2;
+        }
+    }
+    else if (navigator.mimeTypes && navigator.mimeTypes.length){
+        x = navigator.mimeTypes['application/x-shockwave-flash'];
+        if (x && x.enabledPlugin)
+            flashinstalled = 2;
+        else
+            flashinstalled = 1;
+    }
+    else{
+        for(var i=7; i>0; i--){
+            flashVersion = 0;
+            try{
+                var flash = new ActiveXObject("ShockwaveFlash.ShockwaveFlash." + i);
+                flashVersion = i;
+                return (flashVersion > 0)
+            }
+            catch(e){}
+        }
+    }
+    return (flashinstalled > 0);
+}
+
+function playHtml5(src_mp3, src_ogg){
+    //use appropriate source
+    var audio = new Audio("");
+    if (audio.canPlayType("audio/mpeg") != "no" && audio.canPlayType("audio/mpeg") != "")
+        audio = new Audio(src_mp3);
+    else if (audio.canPlayType("audio/ogg") != "no" && audio.canPlayType("audio/ogg") != "")
+        audio = new Audio(src_ogg);
+
+    //play
+    audio.addEventListener("error", function(e){alert("Apologies, the sound is not available.");});
+    audio.play();
+}
+
+function playFlash(src_mp3, src_ogg){
+    var src_flash ="#skAssetUrl('/external/flash/speaker.swf?song_url=" +  src_mp3 + "&autoplay=true')";
+    if (navigator.plugins && navigator.mimeTypes && navigator.mimeTypes.length) { // netscape plugin architecture
+        $("body").append("<embed type='application/x-shockwave-flash' src='" + src_flash + "' width='0' height='0'></embed>");
+    }else{ // PC I
+        $("body").append("<object type='application/x-shockwave-flash' width='0' height='0' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0' data='" + src_flash + "'><param name='wmode' value='transparent'/><param name='movie' value='" + src_flash + "'/><embed src='" + src_flash + "' width='0' height='0' ></embed></object>");
+    }
+}
+
+function playRaw(src_mp3, src_ogg){
+    window.open(src_mp3, "Sound", "menubar=no, status=no, scrollbars=no, menubar=no, width=200, height=100");
+}
+
+</script>
+</html>
