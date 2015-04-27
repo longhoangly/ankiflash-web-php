@@ -21,14 +21,9 @@ if($q=="again") {
 	
 } else if($q=="close") {
 
-	$dirs = array_diff(scandir("./"), array('..', '.','oxlayout','icons','cardform','htmls','images', 'sounds','htmlCollection','imageCollection','soundCollection','index.html','request.php'));
-	foreach($dirs as $item){
-		if(is_dir($item)){
-			recursiveRemoveDirectory("$item");
-		}else{
-			unlink($item);
-		}
-	}
+	recursiveRemoveDirectory("$sid");
+	unlink("archive_$sid.zip");
+	unlink("writedata_$sid.log");
 
 } else if($q=="download") {
 
