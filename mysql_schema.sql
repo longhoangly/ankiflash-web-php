@@ -28,7 +28,13 @@ mysql> insert into tblFlashcards (flsWord, flsWordType, flsPhonetic, flsExample,
 $sql = "INSERT INTO $table (flsWord, flsWordType, flsPhonetic, flsExample, flsSound_uk, flsSound_us, flsThumb, flsImg, flsEntryContent, flsTag, flsCopyRight, flsAnkiDeck, flsLastQueryTime) VALUES (\"$word\", \"$wordType\", \"$phonetic\", \"$example\", \"$sound_uks[0]\", \"$sound_us[0]\", \"$thumb\", \"$img\", \"$entryContent\", \"$tag\", \"$copyRight\", \"$ankiDeck\", NOW())";
 
 NOTE:
-Change mode 777 for parent folder
-Install php5.5
-install mysql5.6
-delete alias for icons folder
+1. Change mode 777 for parent folder
+2. Install php5.5
+3. Install mysql5.6 [Optional]
+4. Delete alias for /icons folder
+5. Change mysql config
+-----------------------
+[mysqld]
+query_cache_size=32M
+max_allowed_packet=32M
+-----------------------
