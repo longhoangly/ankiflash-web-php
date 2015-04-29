@@ -30,11 +30,20 @@ $sql = "INSERT INTO $table (flsWord, flsWordType, flsPhonetic, flsExample, flsSo
 NOTE:
 1. Change mode 777 for parent folder
 2. Install php5.5
-3. Install mysql5.6 [Optional]
+3. Install mysql5.6 [Optional - NOW() function in mysql]
 4. Delete alias for /icons folder
+
 5. Change mysql config
 -----------------------
 [mysqld]
 query_cache_size=32M
 max_allowed_packet=32M
+-----------------------
+6. Install Zip package: yum install zip
+
+7. Change php config [optional - we can use linux command to zip result]
+-----------------------
+realpath_cache_size = 16k
+realpath_cache_ttl = 120
+memory_limit = 1024M
 -----------------------

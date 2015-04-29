@@ -7,11 +7,14 @@ $sid = substr(session_id(), -8);
 // get the q parameter from URL
 $q = $_REQUEST["q"];
 
+$archivName = "archive_$sid.zip";
+$logfile = "writedata_$sid.log";
+
 if($q=="again") {
 
-	recursiveRemoveDirectory("$sid");
-	unlink("archive_$sid.zip");
-	unlink("writedata_$sid.log");
+	recursiveRemoveDirectory($sid);
+	unlink($archivName);
+	unlink($logfile);
 	sleep(1);
 	mkdir("$sid", 0755, true);
 	sleep(1);
@@ -21,23 +24,19 @@ if($q=="again") {
 	
 } else if($q=="close") {
 
-	recursiveRemoveDirectory("$sid");
-	unlink("archive_$sid.zip");
-	unlink("writedata_$sid.log");
+	recursiveRemoveDirectory($sid);
+	unlink($archivName);
+	unlink($logfile);
 
 } else if($q=="download") {
 
 	$directories = array("icons", "oxlayout", "cardform");
-	$archivName = "archive_$sid.zip";
 	
-	$zipObj = new ZipArchive;
-	$zipObj->open($archivName, ZipArchive::CREATE);
-	zpr($directories, $archivName, "archive", $zipObj);
-	zpr3(array($sid), $archivName, "archive", $zipObj, $sid);
-	$zipObj->close();
-	
+	cpr($directories, $sid);
+	exec("zip -r $archivName $sid");
+
 	sleep(1);
-	$ziplink = '<a href="http://flashcardsgenerator.com/' . "archive_$sid.zip" . '" style="font-size: 12px; color: white">Click here to download archived flashcards</a>';
+	$ziplink = '<a href="http://flashcardsgenerator.com/' . $archivName . '" style="font-size: 12px; color: white">Click here to download archived flashcards</a>';
 	echo $ziplink;
 	
 } else {
@@ -380,55 +379,10 @@ function recursiveRemoveDirectory($directory)
     rmdir($directory);
 }
 
-// zip result keep source structure
-function zpr( array $sources, $archivName, $destination, $zipObject){
+// copy result keep source structure
+function cpr( array $sources, $destination){
 	foreach($sources as $source){
-		$files = array_diff(scandir($source), array('..', '.'));
-		foreach($files as $file){			
-			$src = "$source/$file";
-			$des = "$destination/$src";
-			if(is_dir($src)){
-				$arraysrc = array($src);
-				zpr($arraysrc, $archivName, $destination, $zipObject);
-			}else{
-				$zipObject->addFromString($des, file_get_contents($src));
-			}
-		}
-	}
-}
-
-// zip result 2
-function zpr2( array $sources, $archivName, $destination, $zipObject){
-	foreach($sources as $source){
-		$files = array_diff(scandir($source), array('..', '.'));
-		foreach($files as $file){			
-			$src = "$source/$file";
-			$des = "$destination/$file";
-			if(is_dir($src)){
-				$arraysrc = array($src);
-				zpr2($arraysrc, $archivName, $destination, $zipObject);
-			}else{
-				$zipObject->addFromString($des, file_get_contents($src));
-			}
-		}
-	}
-}
-
-// zip result 3
-function zpr3( array $sources, $archivName, $destination, $zipObject, $sid){
-	foreach($sources as $source){
-		$files = array_diff(scandir($source), array('..', '.'));
-		foreach($files as $file){			
-			$src = "$source/$file";
-			$des = "$destination/$src";
-			if(is_dir($src)){
-				$arraysrc = array($src);
-				zpr3($arraysrc, $archivName, $destination, $zipObject, $sid);
-			}else{
-				$des = preg_replace("/$sid\//i", '', $des);
-				$zipObject->addFromString($des, file_get_contents($src));
-			}
-		}
+		exec("cp -r $source $destination");
 	}
 }
 
