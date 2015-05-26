@@ -88,7 +88,7 @@ div.icon-synsym {
 }
 
 .labelsAbout .pron-usonly:hover {
-    background-image: url('../icons/usonly-audio.png');
+    background-image: url('usonly-audio.png');
     background-repeat: no-repeat;
     background-position: left bottom;
 }
@@ -97,7 +97,7 @@ div.icon-synsym {
     width: 29px;
     height: 30px;
     border: 0;
-    background-image: url('../icons/usonly-audio.png');
+    background-image: url('usonly-audio.png');
     background-repeat: no-repeat;
     background-position: left top;
 }
@@ -300,11 +300,11 @@ ul.sketch{
 }
 
 .oxford3000 {
-    background-image: url("../icons/icon-ox3000.png");
+    background-image: url("icon-ox3000.png");
 }
 
 .academic {
-    background-image: url("../icons/icon-academic.png");
+    background-image: url("icon-academic.png");
 }
 /* -end- icons */
 
@@ -364,7 +364,7 @@ ul.sketch{
     padding: 0;
     margin: 1px 0 0 0;
     border: 0;
-    background: #4577bf url(../icons/social.png) no-repeat;
+    background: #4577bf url(social.png) no-repeat;
     cursor: pointer;
     border-radius: 30px;
 }
@@ -436,7 +436,7 @@ ul.sketch{
     height: 24px;
     bottom: 0;
     right: 0;
-    background-image: url("../icons/enlarge-img.png");
+    background-image: url("enlarge-img.png");
     background-color: inherit;
     background-repeat: no-repeat;
     background-position: center;
@@ -519,7 +519,7 @@ dd {
 }
 
 .ui-grad dt.hide:before {
-    background: url(../icons/icon-plus-minus-grey.png) 0 -13px no-repeat;
+    background: url(icon-plus-minus-grey.png) 0 -13px no-repeat;
     background-size: 100%;
 }
 
@@ -544,7 +544,7 @@ dd {
     margin-bottom: -1px;
     width: 13px;
     height: 13px;
-    background: url(../icons/icon-plus-minus-grey.png) 0 0 no-repeat;
+    background: url(icon-plus-minus-grey.png) 0 0 no-repeat;
 }
 
 .see-more {
@@ -720,7 +720,7 @@ dd {
     position:absolute;
     width:13px;
     height:24px;
-    background: url(../icons/icon-plus-minus.png) 0 0 no-repeat;
+    background: url(icon-plus-minus.png) 0 0 no-repeat;
     background-size:100%;
     margin: -7px 0 0 -21px;
 }
@@ -752,16 +752,16 @@ dd {
 }
 
 .oxford3000-blue {
-    background-image: url("../icons/icon-ox3000-blue.png");
+    background-image: url("icon-ox3000-blue.png");
 }
 
 .academic-blue {
-    background-image: url("../icons/icon-academic-blue.png");
+    background-image: url("icon-academic-blue.png");
 }
 
 /*.pictures-blue {
     display: inline-block;
-    background: url("../icons/icon-pictures-blue.png") 0 0 no-repeat;
+    background: url("icon-pictures-blue.png") 0 0 no-repeat;
     width: 30px;
     height: 30px;
     margin: -5px 0 -8px;
@@ -769,7 +769,7 @@ dd {
 
 /*.usage-blue {
     display: inline-block;
-    background: url("../icons/icon-usage-blue.png") 0 0 no-repeat;
+    background: url("icon-usage-blue.png") 0 0 no-repeat;
     width: 30px;
     height: 30px;
     margin: -5px 0 -8px;
@@ -862,7 +862,7 @@ dd {
 #entries-selector .wl-select {
     padding: 0 7px 0 21px;
     margin: -7px;
-    background: #07255e url(../icons/icon-select-arrow.png) 0 top no-repeat;
+    background: #07255e url(icon-select-arrow.png) 0 top no-repeat;
 }
 
 #entries-selector a,#entries-selector span {
@@ -1033,7 +1033,7 @@ dd {
 } 
     
 .wl-table .delete-btn a:before {
-    background: url("../icons/btn-trash.png") no-repeat scroll -1px top / 100% auto transparent;
+    background: url("btn-trash.png") no-repeat scroll -1px top / 100% auto transparent;
 	pointer-events: all;
 }
 
@@ -1054,7 +1054,7 @@ dd {
 }
 
 .btn.test-btn a:before {
-    background: url("../icons/btn-test.png") no-repeat scroll -1px top / 100% auto transparent;
+    background: url("btn-test.png") no-repeat scroll -1px top / 100% auto transparent;
 }
 
 .btn.test-btn a, .btn.delete-btn a{
@@ -1066,7 +1066,7 @@ dd {
 }*/
 
 .wl-add a:before{
-	background: url("../icons/btn-wordlist.png") no-repeat 0px 0px transparent; 
+	background: url("btn-wordlist.png") no-repeat 0px 0px transparent; 
 	background-size: 100%;
 }
 
@@ -1298,7 +1298,7 @@ h5.my-wordlist-titles {
     width: 24px;
     height: 24px;
     line-height: 20px;
-    background: url(../icons/test-cross.png) no-repeat #C1272D;
+    background: url(test-cross.png) no-repeat #C1272D;
     background-size: 100%;
     border-radius: 24px;
     border: 2px solid white;
@@ -1310,7 +1310,7 @@ h5.my-wordlist-titles {
 
 .test__correct {
     background-color: #037531;
-    background-image: url(../icons/test-tick.png);
+    background-image: url(test-tick.png);
 }
 
 .test__skipped, .test__correcthead{
@@ -1477,7 +1477,7 @@ h2 .pos {
     display: block;
     float: left;
     margin-right: 6px;
-    background-image: url("../icons/play-button-small.png");
+    background-image: url("play-button-small.png");
     background-repeat: no-repeat;
     background-position: center center;
     border-radius: 12px;
@@ -1485,11 +1485,11 @@ h2 .pos {
 }
 
 .pron_row .pron_button_record {
-    background-image: url("../icons/record-button-small.png");
+    background-image: url("record-button-small.png");
 }
 
 .pron_row .pron_button_stop, .pron_row .pron_record_stop, .pron_row .pron_play_stop {
-    background-image: url("../icons/stop-button-small.png");
+    background-image: url("stop-button-small.png");
 }
 
 .pron_row .button_is_active {
@@ -1519,7 +1519,7 @@ h2 .pos {
 }
 
 .prac-pron a:before{
-	background: url("../icons/btn-prac-pron.png") no-repeat 0px 0px transparent; 
+	background: url("btn-prac-pron.png") no-repeat 0px 0px transparent; 
 	background-size:100%;
 }
 
@@ -1559,7 +1559,7 @@ h2 .pos {
 \*------------------------------------*/
 
 .box-resources {
-    background-image: url("../icons/old-ball-resources.png");
+    background-image: url("old-ball-resources.png");
 }
 
 .word-list li {
@@ -1712,7 +1712,7 @@ h2 .pos {
   border-left: 3px solid #4577bf;
 }
 .top-container .entry-box-style-heading:before, .top-container .collapse .heading:before, .collapse .top-container .heading:before {
-  background-image: url("../icons/icon-plus-minus.png");
+  background-image: url("icon-plus-minus.png");
 }
 .top-container .entry-box-style-heading:hover, .top-container .collapse .heading:hover, .collapse .top-container .heading:hover, .top-container .entry-box-style-heading:active, .top-container .collapse .heading:active, .collapse .top-container .heading:active, .top-container .unbox.is-active .heading, .unbox.is-active .top-container .heading, .top-container .entry-box-style-heading:focus, .top-container .collapse .heading:focus, .collapse .top-container .heading:focus {
   background-color: rgba(69, 119, 191, 0.2);
@@ -1773,7 +1773,7 @@ h2 .pos {
 }
 .dr-g:before {
   /* icon before derivative group */
-  content: url("../icons/entry-deriv.png");
+  content: url("entry-deriv.png");
   left: -18px;
   position: absolute;
   top: 2px;
@@ -1893,7 +1893,7 @@ li.sn-g:before {
 
 .pvarr:before {
   /* arrow within phrasal verbs */
-  content: url("../icons/pvarr.png");
+  content: url("pvarr.png");
 }
 
 .shcut {
@@ -1970,7 +1970,7 @@ li.sn-g:before {
 }
 .x-g:before {
   /* symbol before example sentence wrap */
-  content: url("../icons/entry-bullet.png");
+  content: url("entry-bullet.png");
   left: -11px;
   top: -2px;
   position: absolute;
@@ -2136,7 +2136,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 
 .xr-gs:before {
   /* arrow before cross-ref prefix */
-  content: url("../icons/entry-arrow.png");
+  content: url("entry-arrow.png");
   margin-right: 4px;
   position: relative;
   top: -1px;
@@ -2191,7 +2191,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 }
 .pv-gs .Ref .pvarr:before {
   /* arrow within phrasal verbs */
-  content: url("../icons/pvarr-blue.png");
+  content: url("pvarr-blue.png");
 }
 
 .idm-g .top-container, .pv-g .top-container {
@@ -2290,14 +2290,14 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 }
 .dr-gs .oxford3000 {
   /* derivative icon */
-  background-image: url("../icons/icon-ox3000-blue.png");
+  background-image: url("icon-ox3000-blue.png");
   width: 25px;
   height: 25px;
   top: -2px;
 }
 .dr-gs .academic {
   /* derivative icon */
-  background-image: url("../icons/icon-academic-blue.png");
+  background-image: url("icon-academic-blue.png");
   width: 25px;
   height: 25px;
   top: -2px;
@@ -2320,7 +2320,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 }
 .entry[dict~="oaad"] .collapse[title^="Grammar"] .p:before {
   /* bullet character before each item */
-  content: url("../icons/entry-sqbullet.png");
+  content: url("entry-sqbullet.png");
   position: absolute;
   left: -15px;
   top: -1px;
@@ -2345,7 +2345,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
   /* plus to denote more content when hidden */
   width: 14px;
   height: 14px;
-  background-image: url("../icons/icon-plus-minus-orange.png");
+  background-image: url("icon-plus-minus-orange.png");
   background-size: 100% auto;
   background-position: center bottom;
   content: "";
@@ -2386,7 +2386,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 }
 .collapse .x-g:not(:first-of-type):before {
   /* separator between inline examples */
-  content: url("../icons/entry-bullet.png");
+  content: url("entry-bullet.png");
   left: -3px;
   margin-left: -2px;
   margin-right: 1px;
@@ -2420,7 +2420,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 }
 .collapse .inline .li:not(:last-of-type):after, .collapse ul.inline .li:not(:last-of-type):after {
   /* bullet character after each item */
-  content: url("../icons/entry-bullet.png");
+  content: url("entry-bullet.png");
   margin-left: 5px;
   position: relative;
   top: -2px;
@@ -2451,7 +2451,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 }
 .collapse .bullet .li:before, .collapse ul.bullet .li:before {
   /* bullet character before each item */
-  content: url("../icons/entry-sqbullet.png");
+  content: url("entry-sqbullet.png");
   position: absolute;
   left: -15px;
   top: -1px;
@@ -2484,7 +2484,7 @@ ol.h-g > .res-g, ol.h-g .sn-gs > .xr-gs, ol.pv-g > .res-g, ol.pv-g .sn-gs > .xr-
 }
 .collapse[title^="Extra"] .x-g:before {
   /* bullet character before first example */
-  content: url("../icons/entry-bullet.png");
+  content: url("entry-bullet.png");
   display: inline;
   left: -11px;
   margin: 0;

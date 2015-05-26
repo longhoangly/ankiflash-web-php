@@ -148,7 +148,7 @@ if($q=="again") {
 			$examples = getExamples($varExamples);
 			$example = $examples[0] . $examples[1] . $examples[2] . $examples[3];
 			$example = preg_replace("/$word/i", "{{c1::$word}}", $example);
-			$example = '<link type="text/css" rel="stylesheet" href="./oxlayout/oxford.css">' . $example;
+			$example = '<link type="text/css" rel="stylesheet" href="oxford.css">' . $example;
 			//$example = '<div class="responsive_entry_center_wrap" style="padding: 5px">' . $example . '</div>';
 				
 			// GET PRONUNCIATION SOUND FILES
@@ -187,9 +187,9 @@ if($q=="again") {
 				$entryContent = innerHTML($entryContentHTML);
 				$entryContent = '<html>' .
 				'<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' .
-				'<link type="text/css" rel="stylesheet" href="./oxlayout/interface.css">' .
-				'<link type="text/css" rel="stylesheet" href="./oxlayout/responsive.css">' .
-				'<link type="text/css" rel="stylesheet" href="./oxlayout/oxford.css">' .
+				'<link type="text/css" rel="stylesheet" href="interface.css">' .
+				'<link type="text/css" rel="stylesheet" href="responsive.css">' .
+				'<link type="text/css" rel="stylesheet" href="oxford.css">' .
 				'<div id="entryContent" class="responsive_entry_center_wrap">' . 	
 				$entryContent . '</div>' . '</html>';
 			} else {
@@ -205,7 +205,7 @@ if($q=="again") {
 			if(strlen($entryContent)>131072){
 				file_put_contents("./htmlCollection/$word.html", $entryContent);
 				file_put_contents("$sid/htmls/$word.html", $entryContent);
-				$entryContent = '<iframe marginwidth="20" marginheight="20" src="./htmls/' . $word . '.html' . '" width=800 height=500/></iframe>';
+				$entryContent = '<iframe marginwidth="20" marginheight="20" src="' . $word . '.html" width=800 height=500/></iframe>';
 			}
 			
 			// GET TAG FROM WORD
@@ -291,7 +291,7 @@ function getSounds($varSounds, $sid) {
 			$mp3SourceFileName = end($mp3SourceSplited);
 			file_put_contents("./soundCollection/$mp3SourceFileName", $mp3FileContent);
 			file_put_contents("$sid/sounds/$mp3SourceFileName", $mp3FileContent);
-			$sound = "[sound:./sounds/$mp3SourceFileName]";
+			$sound = "[sound:$mp3SourceFileName]";
 			array_push($sounds, $sound);
 		}
 	} else {
@@ -319,7 +319,7 @@ function getImages($parent, $tag, $att, $sid) {
 			}
 			file_put_contents("./imageCollection/$imgSourceFileName", $imgFileContent);
 			file_put_contents("$sid/images/$imgSourceFileName", $imgFileContent);
-			$img = '<img src="' . "./images/$imgSourceFileName" . '"/>';
+			$img = '<img src="' . "$imgSourceFileName" . '"/>';
 			array_push($imgs, $img);
 		}
 	}else{

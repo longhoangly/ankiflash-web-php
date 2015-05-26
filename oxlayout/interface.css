@@ -296,7 +296,7 @@ pos {
 .nav .login-circle {
     margin: 0;
     float: right;
-    background: url(../icons/login-bg.png) 0 -50px no-repeat;
+    background: url(login-bg.png) 0 -50px no-repeat;
     height: 80px;
     width: 120px;
     margin-bottom: -50px;
@@ -347,7 +347,7 @@ pos {
     right: 30px;
     height: 36px;
     width: 36px;
-    background: #00123C url(../icons/menu-bars.png) no-repeat center center;
+    background: #00123C url(menu-bars.png) no-repeat center center;
     background-size: 60%;
     border-radius: 0 0 10px 10px;
 }
@@ -363,7 +363,7 @@ pos {
 
 /* main logo */
 .old-logo-title {
-    background: url("../icons/OLD-Logo.png") no-repeat;
+    background: url("OLD-Logo.png") no-repeat;
     background-size: 100%;
     width: 616px;
     height: 108px;
@@ -410,7 +410,7 @@ pos {
     float: left;
     border-radius: 15px;
     overflow: hidden;
-    background: url(../icons/icon-select-arrow-circle-blue.png) no-repeat 2px;
+    background: url(icon-select-arrow-circle-blue.png) no-repeat 2px;
     background-size: 17%; 
 }
 
@@ -450,7 +450,7 @@ pos {
     margin-right: -35px;
     border: none;
     border-radius: 40px;
-    background: url(../icons/search-mag.png) no-repeat;
+    background: url(search-mag.png) no-repeat;
     background-size: 100%;
     cursor: pointer;
 }
@@ -553,7 +553,7 @@ pos {
     border: none;
     border-radius: 18px;
     border-width: 0px;
-    background: #f2f2f2 url(../icons/icon-select-arrow-circle.png) 0px 0px no-repeat;
+    background: #f2f2f2 url(icon-select-arrow-circle.png) 0px 0px no-repeat;
     margin: 0;
     padding: 0 0 0 28px;
     color: #00123c;
@@ -655,13 +655,13 @@ div.social-facebook a,  div.social-twitter a{
 }
 
 div.social-facebook a:before{
-    background-image: url("../icons/btn-facebook.png");
+    background-image: url("btn-facebook.png");
     background-position: -1px bottom;
     background-size:100%;
 }
 
 div.social-twitter a:before{
-    background-image: url("../icons/btn-twitter.png");
+    background-image: url("btn-twitter.png");
     background-position: -1px bottom;
     background-size:100%;
 }
@@ -763,12 +763,12 @@ input.icon-left-colapse[type='submit'] a:before {
 }
 
 .btn.record a:before, input.record[type='submit'] a:before {
-    background-image: url("../icons/btn-record.png");
+    background-image: url("btn-record.png");
     background-size:100%;
 }
 
 .btn.play a:before, input.play[type='submit'] a:before {
-    background-image: url("../icons/btn-play.png");
+    background-image: url("btn-play.png");
     background-size:100%;
 }
 
@@ -805,7 +805,7 @@ input.icon-left-colapse[type='submit'] a:before {
 .ei-g .pron-uk,
 .if-g .pron-uk,
 .pron__wrap .pron-uk {
-    background-image: url(../icons/icon-audio-bre.png);
+    background-image: url(icon-audio-bre.png);
     background-repeat: no-repeat;
     background-position: left top !important;
     background-size:100%;
@@ -819,7 +819,7 @@ input.icon-left-colapse[type='submit'] a:before {
 .ei-g .pron-uk:hover,
 .if-g .pron-uk:hover,
 .pron__wrap .pron-uk:hover {
-    background-image: url(../icons/icon-audio-bre.png);
+    background-image: url(icon-audio-bre.png);
     background-repeat: no-repeat;
     background-position: left bottom !important;
 }
@@ -837,7 +837,7 @@ input.icon-left-colapse[type='submit'] a:before {
 .ei-g .pron-usonly:hover,
 .if-g .pron-usonly:hover,
 .pron__wrap .pron-usonly:hover {
-    background-image: url(../icons/icon-audio-name.png);
+    background-image: url(icon-audio-name.png);
     background-repeat: no-repeat;
     background-position: left bottom !important;     
 }
@@ -855,7 +855,7 @@ input.icon-left-colapse[type='submit'] a:before {
 .ei-g .pron-usonly,
 .if-g .pron-usonly,
 .pron__wrap .pron-usonly {
-    background-image: url(../icons/icon-audio-name.png);
+    background-image: url(icon-audio-name.png);
     background-repeat: no-repeat;
     background-position: left top !important;     
     background-size:100%;
@@ -866,7 +866,7 @@ input.icon-left-colapse[type='submit'] a:before {
 
 /* go to top arrow */
 a.go-to-top {
-    background: url("../icons/go-to-top.png") no-repeat center center;
+    background: url("go-to-top.png") no-repeat center center;
     background-size:100%;
     width: 35px;
     height: 35px;
@@ -960,12 +960,12 @@ p.links {
     width: 8px;
     height: 15px;
     margin-left: 5px;
-    background: url("../icons/link-right.png") no-repeat center center;
+    background: url("link-right.png") no-repeat center center;
     background-size:100%;
 }
 
 .link-left:before, .link-down:before, .link-pdf:before {
-    background: url("../icons/link-left.png") no-repeat center center;
+    background: url("link-left.png") no-repeat center center;
     margin-right: 5px;
     margin-left: 0;
     width: 8px;
@@ -974,7 +974,7 @@ p.links {
 }
 
 .link-pdf:before {
-    background: url("../icons/icon-pdf.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    background: url("icon-pdf.png") no-repeat scroll center center rgba(0, 0, 0, 0);
     height: 16px;
     margin-right: 6px;
     margin-top: 2px;
@@ -998,7 +998,7 @@ p.links {
     box-shadow: 0 1px 5px grey;
     margin-right: 1.2em;
     width: 296px;
-    background: url(../icons/old-ball.png) no-repeat 15px 15px white;
+    background: url(old-ball.png) no-repeat 15px 15px white;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -1076,12 +1076,12 @@ p.links {
     top: 0;
     width: 35px;
     height: 35px;
-    background: url(../icons/icon-rss.png) no-repeat scroll 0 top rgba(0,0,0,0);
+    background: url(icon-rss.png) no-repeat scroll 0 top rgba(0,0,0,0);
     background-size:100%;
 }
 
 .rss-icon:hover {
-    background: url("../icons/icon-rss.png") no-repeat scroll 0 bottom white;
+    background: url("icon-rss.png") no-repeat scroll 0 bottom white;
     background-size:100%;
 }
 
@@ -1430,7 +1430,7 @@ input[disabled="disabled"] {
     height: 50px;
     top: 0;
     right: 0;
-    content: url(../icons/modal/mdl-tick.svg);
+    content: url(modal/mdl-tick.svg);
     padding: 12px 10px;
     z-index: 10;
 }
@@ -1713,7 +1713,7 @@ input[type="checkbox"],input[type="radio"] {
 
 /* modernizr support */
 .no-svg .mdl-text-input.mdl-input-success:after {
-    content: url(../icons/mdl-tick.png);
+    content: url(mdl-tick.png);
 }
 
 /* responsive design */

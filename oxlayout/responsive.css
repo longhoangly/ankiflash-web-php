@@ -676,7 +676,7 @@ fimg {
         margin-top:5px;
         height: 50px;
         width: 235px;
-        background: url(../icons/logo-mini.png) no-repeat center left;
+        background: url(logo-mini.png) no-repeat center left;
         background-size:100%;
     }
 
@@ -702,7 +702,7 @@ fimg {
     .mainsearch .dictionarySelector {
         width: 28px;
         margin-left: -35px;
-        background: url(../icons/icon-select-arrow-circle-blue.png) no-repeat 2px;
+        background: url(icon-select-arrow-circle-blue.png) no-repeat 2px;
         background-size: 86%; 
     }
 
