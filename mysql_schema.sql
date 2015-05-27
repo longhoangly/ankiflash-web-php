@@ -30,6 +30,10 @@ $sql = "INSERT INTO $table (flsWord, flsWordType, flsPhonetic, flsExample, flsSo
 NOTE:
 1. Change mode 777 for parent folder
 2. Install php5.5
+-----------------------
+yum install php-mysqli --centos Linux 2.6.18-308.el5
+-----------------------
+
 3. Install mysql5.6 [Optional - NOW() function in mysql]
 4. Delete alias for /icons folder
 
